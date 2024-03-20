@@ -21,31 +21,18 @@ void loop()
     Serial.print("Satelite count: ");
     Serial.println(gps.satellites.value());
     Serial.print("Latitude: ");
-    Serial.println(gps.location.lat(), 6);
+    Serial.print(gps.location.lat(), 6);
+    Serial.print(", ");
     Serial.print("Longitude: ");
     Serial.println(gps.location.lng(), 6);
-    Serial.print("Speed MPH: ");
-    Serial.println(gps.speed.mph());
-    Serial.print("Altitude Feet: ");
-    Serial.println(gps.altitude.feet());
+    Serial.print("Speed KMPH: ");
+    Serial.println(gps.speed.kmph());
+    Serial.print("Altitude Meters: ");
+    Serial.println(gps.altitude.meters());
     Serial.println("");
   }
-  //  delay(1000);
 }
 
-//void loop(){
-//  while (ss.available() > 0)
-//    if (gps.encode(ss.read()))
-//      displayInfo();
-//
-//  if (millis() > 5000 && gps.charsProcessed() < 10)
-//  {
-//    Serial.println(F("No GPS detected: check wiring."));
-//  }
-//  delay(5000);
-//}
-//}
-//
 //void displayInfo()
 //{
 //  Serial.print(F("Location: "));
