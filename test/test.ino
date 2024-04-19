@@ -1,16 +1,16 @@
+#include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 
-//Create software serial object to communicate with SIM800L
-SoftwareSerial mySerial(3, 2); //SIM800L Tx & Rx is connected to Arduino #3 & #2
+TinyGPSPlus gps;
+SoftwareSerial ss(10, 11); // RX= 10, TX=11
+SoftwareSerial mySerial(2, 3); // RX= 2, TX=3
 
 void setup()
 {
-  //Begin serial communication with Arduino and Arduino IDE (Serial Monitor)
   Serial.begin(9600);
-
-  //Begin serial communication with Arduino and SIM800L
-  mySerial.begin(9600);
-
+//  ss.begin(9600);
+   mySerial.begin(9600);
+   
   Serial.println("Initializing...");
   delay(1000);
 
@@ -29,13 +29,36 @@ void setup()
   mySerial.println("AT+COPS=?"); //Returns the list of operators present in the network
   updateSerial();
   mySerial.println("AT+CBC"); //Returns Li-Po battery status. The second number is the battery level (in our case it is 93%)
-  //and the third number is the actual voltage in mV (in our case 3.877 V)
+  //and the third number is the actual voltage in mV
   updateSerial();
+  Serial.println(F("Setup complete"));
 }
 
 void loop()
 {
+//  while (ss.available()) {
+//    gps.encode(ss.read());
+//  }
+//  if (gps.location.isUpdated())
+//  {
+//    Serial.print("Satelite count: ");
+//    Serial.println(gps.satellites.value());
+//    Serial.print("Latitude: ");
+//    Serial.print(gps.location.lat(), 6);
+//    Serial.print(", ");
+//    Serial.print("Longitude: ");
+//    Serial.println(gps.location.lng(), 6);
+//    Serial.print("Speed KMPH: ");
+//    Serial.println(gps.speed.kmph());
+//    Serial.print("Altitude Meters: ");
+//    Serial.println(gps.altitude.meters());
+//    Serial.println("");
+//  }
+//  else{
+//    Serial.println("No GPS data available");
+//  }
   updateSerial();
+  delay(1000);
 }
 
 void updateSerial()

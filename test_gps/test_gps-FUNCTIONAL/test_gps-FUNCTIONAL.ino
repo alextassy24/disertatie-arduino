@@ -31,36 +31,8 @@ void loop()
     Serial.println(gps.altitude.meters());
     Serial.println("");
   }
+  else{
+    Serial.println("No GPS data available");
+  }
+  delay(1000);
 }
-
-//void displayInfo()
-//{
-//  Serial.print(F("Location: "));
-//  if (gps.location.isValid())
-//  {
-//    Serial.print("Latitude = ");
-//    Serial.print(gps.location.lat(), 6);
-//    Serial.print(F(","));
-//    Serial.print("Longitude = ");
-//    Serial.print(gps.location.lng(), 6);
-//  }
-//  else
-//  {
-//    Serial.print(F("Location is INVALID"));
-//  }
-//
-//  Serial.print(F("  Date "));
-//  if (gps.date.isValid())
-//  {
-//    Serial.print(gps.date.month());
-//    Serial.print(F("/"));
-//    Serial.print(gps.date.day());
-//    Serial.print(F("/"));
-//    Serial.print(gps.date.year());
-//  }
-//  else
-//  {
-//    Serial.print(F("INVALID"));
-//  }
-//  Serial.println();
-//}
