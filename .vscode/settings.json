@@ -1,0 +1,6 @@
+{
+	"arduino.enableUSBDetection": true,
+	"arduino.path": "/home/alextassy24/snap/arduino/current/Arduino/libraries",
+	"arduino.skipHeaderProvider": true,
+	"C_Cpp.errorSquiggles": "disabled"
+}
