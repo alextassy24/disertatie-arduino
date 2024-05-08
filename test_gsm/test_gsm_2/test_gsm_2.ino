@@ -89,8 +89,8 @@ SoftwareSerial SerialAT(2, 3);  // RX, TX
 #define GSM_PIN ""
 
 // Your GPRS credentials, if any
-const char apn[]      = "YourAPN";
-const char gprsUser[] = "";
+const char apn[]      = "live.vodafone.ro";
+const char gprsUser[] = "live";
 const char gprsPass[] = "";
 
 // Your WiFi connection credentials, if applicable
